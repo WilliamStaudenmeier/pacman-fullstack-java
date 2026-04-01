@@ -14,3 +14,4 @@ backend/data/
 # Env
 .env
 frontend/.env
+.vercel
