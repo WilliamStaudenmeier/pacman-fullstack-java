@@ -15,7 +15,6 @@ const gameGrid = document.querySelector('#game');
 const scoreTable = document.querySelector('#score');
 const startButton = document.querySelector('#start-button');
 const leaderboardList = document.querySelector('#leaderboard');
-const statusEl = document.querySelector('#status');
 // Game constants
 const POWER_PILL_TIME = 10000; // ms
 const GLOBAL_SPEED = 80; // ms
@@ -31,18 +30,7 @@ let timer = null;
 let gameWin = false;
 let powerPillActive = false;
 let powerPillTimer = null;
-
-async function checkBackendHealth() {
-  try {
-    const res = await fetch(`${API_BASE}/api/health`);
-    if (!res.ok) {
-      throw new Error('Health request failed');
-    }
-    statusEl.textContent = 'Backend: online';
-  } catch (error) {
-    statusEl.textContent = 'Backend: offline (local game still works)';
-  }
-}
+let hasGameEnded = false;
 
 function getLocalScores() {
   try {
@@ -131,6 +119,11 @@ function playAudio(audio) {
 
 // --- GAME CONTROLLER --- //
 function gameOver(pacman, grid) {
+  if (hasGameEnded) {
+    return;
+  }
+  hasGameEnded = true;
+
   playAudio(soundGameOver);
 
   document.removeEventListener('keydown', (e) =>
@@ -217,6 +210,7 @@ function gameLoop(pacman, ghosts) {
 function startGame() {
   playAudio(soundGameStart);
 
+  hasGameEnded = false;
   gameWin = false;
   powerPillActive = false;
   score = 0;
@@ -244,5 +238,4 @@ function startGame() {
 
 // Initialize game
 startButton.addEventListener('click', startGame);
-checkBackendHealth();
 loadLeaderboard();

@@ -1,13 +1,12 @@
 # pacman-fullstack-java
 
-JavaScript-first Pacman frontend template based on:
-- https://github.com/weibenfalk/vanilla-js-pacman
-
 Project name: pacman-fullstack-java
 
-This project adds a Java backend for leaderboard APIs and is prepared for:
-- Vercel: frontend deployment
-- Fly.io: backend deployment
+Pacman game project with a JavaScript client and a Java backend for leaderboard APIs.
+
+The game runs locally and can be deployed with:
+- Vercel for the game client
+- Fly.io for the Java backend
 
 If you do not want a Fly account, the frontend still works on Vercel with a browser-local leaderboard fallback.
 
