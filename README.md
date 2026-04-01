@@ -1,5 +1,7 @@
 # pacman-fullstack-java
 
+Check out the link here to play the game: https://pacman-fullstack-java.vercel.app/
+
 Project name: pacman-fullstack-java
 
 Pacman game project with a JavaScript client and a Java backend for leaderboard APIs.
