@@ -36,6 +36,11 @@ h2 {
   margin-bottom: 12px;
 }
 
+#status a {
+  color: #9ed4ff;
+  font-weight: 600;
+}
+
 #game {
   position: relative;
   display: inline-grid;
