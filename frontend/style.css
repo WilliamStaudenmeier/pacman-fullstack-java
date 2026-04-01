@@ -13,12 +13,19 @@ body {
   position: fixed;
   top: 10px;
   right: 14px;
-  color: rgba(255, 255, 255, 0.45);
   font-size: 0.85rem;
   letter-spacing: 0.03em;
   z-index: 999;
-  pointer-events: none;
   user-select: none;
+}
+
+#watermark a {
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+}
+
+#watermark a:hover {
+  color: rgba(255, 255, 255, 0.7);
 }
 
 #wrapper {
